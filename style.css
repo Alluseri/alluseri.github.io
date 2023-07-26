@@ -170,13 +170,13 @@ body {
 }
 
 .i:hover {
-	color: rgb(20, 43, 255) !important;
+	color: rgb(20, 43, 255);
 	transition: color 20ms;
 }
 
 .sctext {
-	color: rgb(36, 20, 255) !important;
-	text-shadow: 2px 2px 1px rgba(18, 1, 255, 0.2) !important;
+	color: rgb(36, 20, 255);
+	text-shadow: 2px 2px 1px rgba(18, 1, 255, 0.2);
 	user-select: none;
 }
 
