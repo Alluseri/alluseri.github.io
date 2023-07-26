@@ -8,7 +8,7 @@ var pushInProgress = false;
 function pushNotification(content) {
 	$("#notification-content").innerText = content;
 	$("#notification-content").animate({
-		opacity: [1,1,1,0]
+		opacity: [1, 1, 1, 0]
 	}, {
 		duration: 2000,
 		iterations: 1,
@@ -33,23 +33,23 @@ function handleOrientationType(type) {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 	playbacker = $("#playbacker");
 	lyricsItem = $("#lyrics");
 	trueLyrics = lyricsItem.innerText;
 
-	var latestAPI = typeof(screen.orientation) != "string";
+	var latestAPI = typeof (screen.orientation) != "string";
 	handleOrientationType(latestAPI ? screen.orientation?.type : screen.orientation);
 	if (latestAPI && screen.orientation)
-		screen.orientation.onchange = function() {
+		screen.orientation.onchange = function () {
 			handleOrientationType(screen.orientation?.type);
 		};
-	else window.onorientationchange = function() {
+	else window.onorientationchange = function () {
 		handleOrientationType(screen.orientation);
 	};
 
-	playbacker.onclick = function() {
-		if (handleOrientationType((typeof(screen.orientation) != "string") ? screen.orientation?.type : screen.orientation)) {
+	playbacker.onclick = function () {
+		if (handleOrientationType((typeof (screen.orientation) != "string") ? screen.orientation?.type : screen.orientation)) {
 			$("#primary-showcase").style.display = "flex";
 			$("audio").play();
 			this.style.display = "none";
@@ -59,13 +59,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	};
 
 	$$(".i-copyable").forEach(e => {
-		e.onclick = async function() {
+		e.onclick = async function () {
 			await navigator.clipboard.writeText(e.attributes["i-md"].value);
 			pushNotification("Copied to clipboard!");
 		};
 	});
 	$$(".i-openable").forEach(e => {
-		e.onclick = function() {
+		e.onclick = function () {
 			window.open(e.attributes["i-md"].value);
 		};
 	});
