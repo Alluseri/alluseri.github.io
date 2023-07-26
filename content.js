@@ -15,19 +15,13 @@ function pushNotification(content) {
 	});
 }
 
-var lyricsItem;
 var playbacker;
-var trueLyrics;
-var willStale = false;
 
 function handleOrientationType(type) {
 	if (type && !type.startsWith("landscape")) {
-		lyricsItem.innerText = "Please rotate your device into landscape orientation for a better experience...";
-		if (willStale) lyricsItem.id = "stale-lyrics";
-		playbacker.innerText = "Please rotate your device into landscape orientation before entering...";
+		playbacker.innerText = "Please rotate your device(if possible) into landscape orientation for a better experience.\n\nTap anywhere on the screen to enter...";
 		return false;
 	} else {
-		lyricsItem.innerText = trueLyrics;
 		playbacker.innerText = "Tap anywhere on the screen to enter...";
 		return true;
 	}
@@ -35,8 +29,6 @@ function handleOrientationType(type) {
 
 document.addEventListener("DOMContentLoaded", function () {
 	playbacker = $("#playbacker");
-	lyricsItem = $("#lyrics");
-	trueLyrics = lyricsItem.innerText;
 
 	var latestAPI = typeof (screen.orientation) != "string";
 	handleOrientationType(latestAPI ? screen.orientation?.type : screen.orientation);
@@ -49,13 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 
 	playbacker.onclick = function () {
-		if (handleOrientationType((typeof (screen.orientation) != "string") ? screen.orientation?.type : screen.orientation)) {
-			$("#primary-showcase").style.display = "flex";
-			$("audio").play();
-			this.style.display = "none";
-			this.onclick = null;
-			willStale = true;
-		}
+		handleOrientationType((typeof (screen.orientation) != "string") ? screen.orientation?.type : screen.orientation);
+		$("#primary-showcase").style.display = "flex";
+		$("audio").play();
+		this.style.display = "none";
+		this.onclick = null;
 	};
 
 	$$(".i-copyable").forEach(e => {

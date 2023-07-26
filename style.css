@@ -143,14 +143,6 @@ body {
 	max-width: fit-content;
 }
 
-#stale-lyrics {
-	font-size: 24pt;
-	font-family: Lunahook, Roboto, Arial, Helvetica, sans-serif;
-	color: #FFF;
-	text-shadow: 2px 2px 1px #0003;
-	text-align: center;
-}
-
 #metainfo {
 	pointer-events: none;
 	opacity: 0;
