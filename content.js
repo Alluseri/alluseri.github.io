@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 	});
 
-	/*setTimeout(function() {
+	setTimeout(function() {
 		var s = document.createElement("style");
 		s.innerHTML = "#primary-showcase>#logo>#logo-border{background:#FFF!important;}";
 		document.head.appendChild(s);
-	}, 1000);*/
+	}, 1000);
 });
