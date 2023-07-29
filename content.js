@@ -16,19 +16,21 @@ function pushNotification(content) {
 }
 
 var playbacker;
+var lyrun;
 
 function handleOrientationType(type) {
-	if (type && !type.startsWith("landscape")) {
-		playbacker.innerText = "Please rotate your device(if possible) into landscape orientation for a better experience.\n\nTap anywhere on the screen to enter...";
-		return false;
-	} else {
-		playbacker.innerText = "Tap anywhere on the screen to enter...";
-		return true;
-	}
+	lyrun.style.width = window.innerWidth+"px";
+	lyrun.style.minWidth = window.innerWidth+"px";
 }
+
+window.addEventListener("resize", function() {
+	lyrun.style.width = window.innerWidth+"px";
+	lyrun.style.minWidth = window.innerWidth+"px";
+});
 
 document.addEventListener("DOMContentLoaded", function () {
 	playbacker = $("#playbacker");
+	lyrun = $("#lyrics-under");
 
 	var latestAPI = typeof (screen.orientation) != "string";
 	handleOrientationType(latestAPI ? screen.orientation?.type : screen.orientation);
@@ -59,4 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			window.open(e.attributes["i-md"].value);
 		};
 	});
+
+	/*setTimeout(function() {
+		var s = document.createElement("style");
+		s.innerHTML = "#primary-showcase>#logo>#logo-border{background:#FFF!important;}";
+		document.head.appendChild(s);
+	}, 1000);*/
 });
