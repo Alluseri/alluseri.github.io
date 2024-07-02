@@ -1,0 +1,261 @@
+@font-face {
+	font-family: "Lunahook";
+	src:
+		local("Century Gothic"),
+		url("centurygothic.ttf") format("truetype")
+}
+
+@font-face {
+	font-family: "Roboto";
+	src:
+		local("Roboto"),
+		local("Roboto Regular"),
+		url("Roboto-Regular.ttf") format("truetype")
+}
+
+@keyframes initSlideLogo {
+	0% {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes initBorder {
+	0% {
+		width: 0%;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
+
+@keyframes permanentSlideLogo {
+	0% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(5%);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes initSuperBorder {
+	0% {
+		width: 0%;
+		min-width: 0%;
+	}
+
+	100% {
+		width: 1920px;
+		min-width: 1920px;
+	}
+}
+
+@keyframes initMetaInfo {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+		pointer-events: initial;
+	}
+}
+
+@keyframes impulse {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+body {
+	background: url("background-plus.png");
+	background-size: 100% 100%;
+	backdrop-filter: blur(20px);
+}
+
+#primary-showcase {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: inherit;
+}
+
+#logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #FFF;
+	font-family: Lunahook, Roboto, Arial, Helvetica, sans-serif;
+	font-size: 64px;
+	font-weight: lighter;
+	letter-spacing: -2px;
+	text-shadow: 3px 3px 1px #0003;
+	animation: 1s ease-out 0s 1 initSlideLogo, 4s ease-in-out 2s infinite permanentSlideLogo;
+	margin-top: -80px;
+	user-select: none;
+}
+
+#logo-border {
+	line-height: 64px;
+	margin-top: -10px;
+	animation: 1s ease-out 1s 1 initBorder normal forwards;
+	width: 0%;
+	height: 3px;
+	margin-left: 7px;
+	background: #FFF !important;
+	border-radius: 1px;
+	box-shadow: 2px 2px 2px #0003;
+}
+
+#lyrics {
+	font-size: 24pt;
+	font-family: Lunahook, Roboto, Arial, Helvetica, sans-serif;
+	color: #FFF;
+	text-shadow: 2px 2px 1px #0003;
+	animation: 2.65s linear 1s 1 initSuperBorder normal forwards;
+	width: 0%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	max-width: fit-content;
+}
+
+#lyrics-under {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#metainfo {
+	pointer-events: none;
+	opacity: 0;
+	margin-left: 16px;
+	margin-top: 30px;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	color: #FFF;
+	font-size: 14pt;
+	text-shadow: 2px 2px 1px #0003;
+	text-align: center;
+	animation: 0.75s ease-out 2s 1 initMetaInfo normal forwards;
+}
+
+.i {
+	cursor: pointer;
+	transition: color 0ms;
+}
+
+.i:hover {
+	color: rgb(20, 43, 255);
+	transition: color 20ms;
+}
+
+.sctext {
+	color: rgb(36, 20, 255);
+	text-shadow: 2px 2px 1px rgba(18, 1, 255, 0.2);
+	user-select: none;
+}
+
+#np {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	pointer-events: none;
+}
+
+#np-label {
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #FFF;
+	text-align: center;
+	margin-bottom: 16px;
+	animation: 2s ease-in-out 0s infinite impulse;
+	pointer-events: all;
+}
+
+#np-label:hover {
+	opacity: 1;
+	animation: none;
+}
+
+#notification {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	pointer-events: none;
+}
+
+#playbacker {
+	position: absolute;
+	background: #000;
+	color: #FFF;
+	font-family: Lunahook, Roboto, Arial, Helvetica, sans-serif;
+	font-size: 24pt;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	text-align: center;
+}
+
+#notification-content {
+	opacity: 0;
+	color: #FFF;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+	background: rgba(0, 0, 0, 0.6);
+	padding: 16px;
+	border-radius: 16px;
+	margin-top: 240px;
+}

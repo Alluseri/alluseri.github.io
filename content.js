@@ -19,13 +19,13 @@ var playbacker;
 var lyrun;
 
 function handleOrientationType(type) {
-	lyrun.style.width = window.innerWidth+"px";
-	lyrun.style.minWidth = window.innerWidth+"px";
+	lyrun.style.width = window.innerWidth + "px";
+	lyrun.style.minWidth = window.innerWidth + "px";
 }
 
-window.addEventListener("resize", function() {
-	lyrun.style.width = window.innerWidth+"px";
-	lyrun.style.minWidth = window.innerWidth+"px";
+window.addEventListener("resize", function () {
+	lyrun.style.width = window.innerWidth + "px";
+	lyrun.style.minWidth = window.innerWidth + "px";
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 	});
 
-	setTimeout(function() {
+	setTimeout(function () {
 		var s = document.createElement("style");
 		s.innerHTML = "#primary-showcase>#logo>#logo-border{background:#FFF!important;}";
 		document.head.appendChild(s);
